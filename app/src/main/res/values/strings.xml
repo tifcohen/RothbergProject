@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Examples App</string>
+    <string name="welcome">Welcome!</string>
+    <string name="click_me">Click me</string>
+    <string name="second_activity">This is Jokes Activity</string>
+    <string name="no_jokes">No jokes yet...</string>
+    <string name="click_to_laugh">Click to Laugh</string>
+    <string name="tap_to_reveal">Tap to Reveal ></string>
+
 </resources>
