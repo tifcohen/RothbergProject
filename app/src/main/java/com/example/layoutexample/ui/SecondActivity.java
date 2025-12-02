@@ -23,9 +23,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SecondActivity extends AppCompatActivity {
-    private static final String TAG  = "MySecondActivity";
+    private static final String TAG  = "ExamplesApp: MySecondActivity";
 
-    //step 1
+    // step 1
 //    private Button backButton;
 
 //    OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
@@ -49,6 +49,7 @@ public class SecondActivity extends AppCompatActivity {
 
         Log.d(TAG, "onCreate");
 
+        // step 1
 //        getOnBackPressedDispatcher().addCallback(this, callback); // connects the back press callback to the back press action
 //
 //        backButton = findViewById(R.id.backBtn);

@@ -12,7 +12,7 @@ import com.example.layoutexample.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG  = "MyMainActivity";
+    private static final String TAG  = "ExamplesApp: MyMainActivity";
 
     private Button btn;
 
