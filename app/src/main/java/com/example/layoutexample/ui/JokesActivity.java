@@ -1,29 +1,14 @@
 package com.example.layoutexample.ui;
 
-import static android.view.View.GONE;
-import static android.view.View.VISIBLE;
-import static android.widget.Toast.LENGTH_LONG;
-import static android.widget.Toast.LENGTH_SHORT;
-
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.layoutexample.R;
-import com.example.layoutexample.model.JokeResponseData;
-import com.example.layoutexample.retrofit.RetrofitJokeInstance;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-public class SecondActivity extends AppCompatActivity {
-    private static final String TAG  = "ExamplesApp: MySecondActivity";
+public class JokesActivity extends AppCompatActivity {
+    private static final String TAG  = "ExamplesApp: JokesActivity";
 
     // step 1
 //    private Button backButton;
@@ -45,7 +30,7 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_second);
+        setContentView(R.layout.activity_jokes);
 
         Log.d(TAG, "onCreate");
 

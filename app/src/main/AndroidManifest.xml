@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.SecondActivity"
+            android:name=".ui.JokesActivity"
             android:exported="false" >
         </activity>
     </application>

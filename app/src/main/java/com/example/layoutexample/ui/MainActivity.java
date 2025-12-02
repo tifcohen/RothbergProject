@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openSecondActivity() {
-        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+        Intent intent = new Intent(MainActivity.this, JokesActivity.class);
         Log.d(TAG, "Open second activity...");
         startActivity(intent);
     }
