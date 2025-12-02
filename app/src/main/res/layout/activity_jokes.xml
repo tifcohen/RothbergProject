@@ -74,16 +74,16 @@
             app:layout_constraintStart_toStartOf="@id/tvJoke"
             app:layout_constraintTop_toBottomOf="@id/tvJoke" />
 
-<!--        <Button-->
-<!--            android:id="@+id/jokeBtn"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="bottom"-->
-<!--            android:layout_marginBottom="50dp"-->
-<!--            android:text="@string/click_to_laugh"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent" />-->
+        <Button
+            android:id="@+id/jokeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="50dp"
+            android:text="@string/click_to_laugh"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,11 +1,23 @@
 package com.example.layoutexample.ui;
 
+import static android.icu.text.DisplayOptions.DisplayLength.LENGTH_SHORT;
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+import static android.widget.Toast.LENGTH_LONG;
+
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.layoutexample.R;
+import com.example.layoutexample.model.JokeResponseData;
+import com.example.layoutexample.viewmodel.JokesViewModel;
 
 public class JokesActivity extends AppCompatActivity {
     private static final String TAG  = "ExamplesApp: JokesActivity";
@@ -22,9 +34,12 @@ public class JokesActivity extends AppCompatActivity {
 //    };
 
     // step 2
-//    private Button jokeBtn;
-//    private TextView tvJoke;
-//    private TextView tvJokeDelivery;
+    private Button jokeBtn;
+    private TextView tvJoke;
+    private TextView tvJokeDelivery;
+
+    // step 3
+    private JokesViewModel jokesViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +63,9 @@ public class JokesActivity extends AppCompatActivity {
 //        });
 
         // step 2
-//        jokeBtn = findViewById(R.id.jokeBtn);
-//        tvJoke = findViewById(R.id.tvJoke);
-//        tvJokeDelivery = findViewById(R.id.tvJokeDelivery);
+        jokeBtn = findViewById(R.id.jokeBtn);
+        tvJoke = findViewById(R.id.tvJoke);
+        tvJokeDelivery = findViewById(R.id.tvJokeDelivery);
 //
 //        jokeBtn.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -62,6 +77,28 @@ public class JokesActivity extends AppCompatActivity {
 //                getJoke();
 //            }
 //        });
+
+        // step 3
+//        jokesViewModel = new ViewModelProvider(this).get(JokesViewModel.class);
+//        jokeBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (tvJokeDelivery.getVisibility() == VISIBLE) {
+//                    tvJokeDelivery.setText(R.string.tap_to_reveal);
+//                    tvJokeDelivery.setVisibility(GONE);
+//                }
+//                jokesViewModel.getJoke();
+//            }
+//        });
+//
+//        jokesViewModel.jokeLiveData.observe(this, joke -> {
+//            if (joke != null) {
+//                handleJoke(joke);
+//            } else {
+//                Toast.makeText(JokesActivity.this, "Sorry, error getting the joke", LENGTH_LONG).show();
+//            }
+//        });
+
     }
 
     @Override
@@ -121,37 +158,36 @@ public class JokesActivity extends AppCompatActivity {
 //            @Override
 //            public void onFailure(Call<JokeResponseData> call, Throwable t) {
 //                Log.e(TAG, "error getting the joke", t);
-//                Toast.makeText(SecondActivity.this, "Sorry, error getting the joke", LENGTH_LONG).show();
-//            }
-//        });
-////    }
-//
-//    private void handleJoke(JokeResponseData joke) {
-//        switch (joke.getType()) {
-//            case SINGLE:
-//                handleSingleJoke(joke);
-//                break;
-//            case TWO_PART:
-//                handleTwoPartJoke(joke);
-//                break;
-//            default:
-//                Toast.makeText(SecondActivity.this, "Can't handle that type of joke", LENGTH_SHORT).show();
-//        }
-//    }
-//
-//    private void handleSingleJoke(JokeResponseData joke) {
-//        tvJoke.setText(joke.getJoke());
-//    }
-//
-//    private void handleTwoPartJoke(JokeResponseData joke) {
-//        tvJoke.setText(joke.getSetup());
-//        tvJokeDelivery.setVisibility(VISIBLE);
-//        tvJokeDelivery.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                tvJokeDelivery.setText(joke.getDelivery());
+//                Toast.makeText(JokesActivity.this, "Sorry, error getting the joke", LENGTH_LONG).show();
 //            }
 //        });
 //    }
+//
+    private void handleJoke(JokeResponseData joke) {
+        switch (joke.getType()) {
+            case SINGLE:
+                handleSingleJoke(joke);
+                break;
+            case TWO_PART:
+                handleTwoPartJoke(joke);
+                break;
+            default:
+                Toast.makeText(JokesActivity.this, "Can't handle that type of joke", LENGTH_LONG).show();
+        }
+    }
 
+    private void handleSingleJoke(JokeResponseData joke) {
+        tvJoke.setText(joke.getJoke());
+    }
+
+    private void handleTwoPartJoke(JokeResponseData joke) {
+        tvJoke.setText(joke.getSetup());
+        tvJokeDelivery.setVisibility(VISIBLE);
+        tvJokeDelivery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvJokeDelivery.setText(joke.getDelivery());
+            }
+        });
+    }
 }
